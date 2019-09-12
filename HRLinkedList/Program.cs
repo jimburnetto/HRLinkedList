@@ -16,6 +16,17 @@ class Solution
     public static Node insert(Node head, int data)
     {
         //Complete this method
+        //if head is null, set next to null and data to data
+        if (head == null)
+        {
+           return new Node(data);
+        }
+        else
+        {
+           var rNode = new Node(data);
+            head.next = rNode;
+            return head;
+        }
     }
 
     public static void display(Node head)
