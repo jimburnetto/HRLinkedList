@@ -17,16 +17,28 @@ class Solution
     {
         //Complete this method
         //if head is null, set next to null and data to data
+        var newNode = new Node(data);
+        var currNode = head;
+        
+
         if (head == null)
         {
            return new Node(data);
         }
-        else
+        //get the last node in LL
+        // insert(currNode.next, data);
+        while (currNode.next != null)
         {
-           var rNode = new Node(data);
-            head.next = rNode;
-            return head;
+            //not last node
+            currNode = currNode.next;
         }
+        //after the while loop, then currNode.next should be null
+        currNode.next = newNode;   //why does this also manipulate head?
+        //currNode = head;
+        //return currNode;
+        //head.next = newNode;    //doesn't work
+        return head;
+
     }
 
     public static void display(Node head)
@@ -45,6 +57,7 @@ class Solution
         int T = Int32.Parse(Console.ReadLine());
         while (T-- > 0)
         {
+
             int data = Int32.Parse(Console.ReadLine());
             head = insert(head, data);
         }
